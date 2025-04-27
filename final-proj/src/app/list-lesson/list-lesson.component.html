@@ -1,0 +1,9 @@
+<div class="lesson-gallery">
+    <div 
+      class="lesson-card" 
+      *ngFor="let lesson of lessons" 
+      [class.started]="isLessonStarted(lesson.startDate)"
+      (click)="navigateToLessonDetails(lesson)">
+      <h3>{{ lesson.name }}</h3>
+    </div>
+  </div>

@@ -1,0 +1,5 @@
+<form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+    <input type="text" formControlName="name" placeholder="שם">
+    <input type="text" formControlName="password" placeholder="סיסמה">
+    <button type="submit">כניסה</button>
+</form>

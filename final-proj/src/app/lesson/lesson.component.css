@@ -1,0 +1,21 @@
+div {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    width: 80%; /* רוחב מותאם, ניתן לשנות לפי הצורך */
+    max-width: 600px; /* רוחב מקסימלי */
+    text-align: right; /* טקסט מימין למשמאל */
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+p {
+    color: #666;
+    margin: 5px 0;
+    font-size: 16px;
+}
