@@ -33,8 +33,10 @@ export class LoginComponent {
 
       if (user) {
         if (user.type === 'teacher') {
+          sessionStorage.setItem('typeUser','teacher');
           this.router.navigate(['/lessons']); // ניתוב לרשימת שיעורים
         } else if (user.type === 'secretary') {
+          sessionStorage.setItem('typeUser','secretary');
           this.router.navigate(['/registering']); // ניתוב למסך נרשמות
         }
       } else {

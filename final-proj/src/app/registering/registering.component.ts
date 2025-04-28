@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
-
+import { AgGridAngular } from 'ag-grid-angular'; // Angular Data Grid Component
+import type { ColDef } from 'ag-grid-community'; // Column Definition Type Interface
+import { AllCommunityModule, ModuleRegistry } from 'ag-grid-community';
+ModuleRegistry.registerModules([AllCommunityModule]);
 
 @Component({
   selector: 'app-registering',
   standalone: true,
-  imports: [],
+  imports: [AgGridAngular],
   templateUrl: './registering.component.html',
   styleUrl: './registering.component.css'
 })
@@ -21,6 +24,25 @@ export class RegisteringComponent {
     { name: "עידו רוזן", phone: "0509012345", id: "951753486", lesson: "שיעור ספורט חורף", price: "95", isPaid: false },
     { name: "נועה גולן", phone: "0500123456", id: "258963147", lesson: "שיעור טאי צ'י", price: "85", isPaid: true }
   ];
-
-
+  gridOptions = {
+    context: {}
+  }
+  // Column Definitions: Defines the columns to be displayed.
+  colDefs: ColDef[] = [
+    {
+      field: "name", headerName: 'שם', filter: 'agTextColumnFilter'
+    },
+    { field: "lesson", headerName: 'שיעור', filter: 'agTextColumnFilter', },
+    {
+      field: "", headerName: "פרטים",
+      cellRenderer: function (params: any) {
+        var eDiv = document.createElement("div");
+        eDiv.innerHTML = "<button>פרטים</button>";
+        eDiv.addEventListener("click", function () {
+          alert(`ת"ז: ${params.data.id} ,  שם: ${params.data.name} ,  טלפון: ${params.data.phone} ,  שיעור: ${params.data.lesson} ,  מחיר: ${params.data.price} ש"ח ,  שולם: ${params.data.isPaid ? "כן" : "לא"}`);
+        });
+        return eDiv;
+      }
+    }
+  ];
 }
